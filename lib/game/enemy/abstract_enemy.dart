@@ -32,7 +32,7 @@ abstract class AbstractEnemy extends BodyComponent with ContactCallbacks {
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    life = LifeComponent(maxHealth: health, onDeath: _onDeath);
+    life = LifeComponent(maxHealth: health, onDeath: onDeath);
     this.add(life);
   }
 
@@ -74,9 +74,10 @@ abstract class AbstractEnemy extends BodyComponent with ContactCallbacks {
     } else if (other is Component) {
       final lifeComponent = other.firstChild<LifeComponent>();
       if (lifeComponent != null) {
+        print('enemy attack');
         lifeComponent.takeDamage(attackPower);
+        removeFromParent();
       }
-      removeFromParent();
     }
   }
 
@@ -90,12 +91,14 @@ abstract class AbstractEnemy extends BodyComponent with ContactCallbacks {
     aiBehavior.move(dt);
   }
 
-  void _onDeath() {
+  void onDeath() {
     final game = findGame();
     if (game != null) {
       final player = game.firstChild<Player>();
       player?.playerBloc.add(PlayerGainedXP(experienceValue));
     }
+
+    removeFromParent();
   }
 
   void setupBehavior() {

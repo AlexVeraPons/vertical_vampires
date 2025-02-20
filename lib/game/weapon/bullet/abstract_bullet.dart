@@ -1,4 +1,3 @@
-import 'package:flame/experimental.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flame/components.dart';
 import 'package:vertical_vampires/game/enemy/abstract_enemy.dart';
@@ -48,7 +47,7 @@ abstract class AbstractBullet extends BodyComponent with ContactCallbacks {
   @override
   Future<void> onLoad() {
     final shape = CircleShape()..radius = size;
-    fixtureDef = FixtureDef(shape)
+     fixtureDef = FixtureDef(shape)
       ..restitution = 0.0
       ..density = 1.0
       ..friction = 0.0
@@ -95,7 +94,7 @@ abstract class AbstractBullet extends BodyComponent with ContactCallbacks {
   void recycleBullet() {
     if (pool != null) {
       pool!.releaseBullet(this);
-      removeFromParent();
+    removeFromParent();
     }
   }
 

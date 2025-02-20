@@ -4,11 +4,11 @@ class LifeComponent extends Component {
   double _maxHealth;
   double _currentHealth;
   final void Function() _onDeath;
-  final void Function(double)? _onHit;
+  final void Function(double)? _onHit; 
   LifeComponent({
     required double maxHealth,
     required void Function() onDeath,
-    void Function(double ammount)? onHit,
+    void Function(double ammount)? onHit, 
   })  : _onDeath = onDeath,
         _onHit = onHit,
         _maxHealth = maxHealth,
@@ -17,9 +17,11 @@ class LifeComponent extends Component {
   get currentLife => null;
 
   void takeDamage(double amount) {
+    print(_currentHealth);
+    print(amount);
     _currentHealth -= amount;
     if (_onHit != null) {
-      _onHit!(_currentHealth);
+      _onHit(_currentHealth); 
     }
     if (_currentHealth <= 0) {
       _currentHealth = 0;

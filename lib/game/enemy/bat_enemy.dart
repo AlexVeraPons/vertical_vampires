@@ -18,7 +18,8 @@ class BatEnemy extends AbstractEnemy {
           position: position,
           speed: 8.0,
           attackPower: 30.0,
-          health: 10,
+          health: 70,
+          experienceValue: 100,
         );
 
   @override
@@ -89,8 +90,8 @@ class BatEnemy extends AbstractEnemy {
   }
 
   @override
-  void onRemove() {
+  void  onDeath(){
     _spawnDeathParticles();
-    super.onRemove();
+    super.onDeath();
   }
 }

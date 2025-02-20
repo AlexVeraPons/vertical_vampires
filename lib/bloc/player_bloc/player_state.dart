@@ -1,5 +1,4 @@
 import 'package:vector_math/vector_math_64.dart';
-import 'package:vertical_vampires/bloc/player_bloc/player_event.dart';
 import 'package:vertical_vampires/game/movement/movement_strategy.dart';
 import 'package:vertical_vampires/game/upgrade/upgrade_system.dart';
 
@@ -25,9 +24,9 @@ class PlayerUpgradeState extends PlayerState {
 
 class PlayerDeathState extends PlayerState {}
 
-class PlayerGainedXPState extends PlayerState {
-  int ammount;
-  PlayerGainedXPState(this.ammount);
+class PlayerGainedXPState extends PlayerState{
+  int amount;
+  PlayerGainedXPState(this.amount);
 }
 
 class PlayerHitState extends PlayerState {

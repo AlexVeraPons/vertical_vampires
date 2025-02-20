@@ -19,7 +19,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     WeaponStats initialStats = WeaponStats(fireRate: 1);
     TargetClosestEnemyShootStrategy initialStrategy =
         TargetClosestEnemyShootStrategy();
-    FastRedBullet initialBullet = FastRedBullet();
+    FastBullet initialBullet = FastBullet();
 
     _currentContext = UpgradeContext(
       stats: initialStats,

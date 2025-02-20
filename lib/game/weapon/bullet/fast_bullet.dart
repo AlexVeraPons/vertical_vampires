@@ -4,20 +4,26 @@ import 'dart:ui';
 import 'package:vertical_vampires/game/life_component.dart';
 import 'package:vertical_vampires/game/weapon/bullet/abstract_bullet.dart';
 
-class FastRedBullet extends AbstractBullet {
+class FastBullet extends AbstractBullet {
   late bool shouldRender = true;
-  FastRedBullet() : super() {
+  final Color color = Color(0xFFFF0000); // Red color
+
+  FastBullet() : super() {
     size = 3;
     speed = 500.0;
   }
 
   @override
   AbstractBullet createNewInstance() {
-    return FastRedBullet();
+    return FastBullet();
   }
 
   @override
   void render(Canvas canvas) {
+    if (shouldRender) {
+      final paint = Paint()..color = color;
+      canvas.drawCircle(Offset.zero, size, paint);
+    }
   }
 
   @override

@@ -119,7 +119,7 @@ class Player extends BodyComponent {
 
   Future<void> _initializeWeapon(BulletPool bp) async {
     final sprite = await Sprite.load(_WEAPON_IMAGE);
-    final fastRedPrefab = FastRedBullet();
+    final fastRedPrefab = FastBullet();
     final stats = WeaponStats(fireRate: 1.5);
     parent?.add(Weapon(
       stats: stats,

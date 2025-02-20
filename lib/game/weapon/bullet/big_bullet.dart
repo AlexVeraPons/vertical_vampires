@@ -31,5 +31,6 @@ class BigBullet extends AbstractBullet {
   @override
   void hitTarget(LifeComponent life) {
     life.takeDamage(300);
+    removeFromParent();
   }
 }
