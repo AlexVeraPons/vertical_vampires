@@ -32,7 +32,6 @@ class DiveMoveBehavior extends AiBehavior {
       final force = diveDirection * speed * 50;
       body.linearVelocity = force;
 
-      // Update dive timer and check if dive duration has been reached
       _diveTimer += dt;
       if (_diveTimer >= diveDuration) {
         _isDiving = false;
@@ -40,7 +39,6 @@ class DiveMoveBehavior extends AiBehavior {
         _timer = 0.0;
       }
     } else {
-      // Change horizontal direction if bounds are reached
       if (body.position.x <= leftBound) {
         _horizontalDirection = 1;
       } else if (body.position.x >= rightBound) {

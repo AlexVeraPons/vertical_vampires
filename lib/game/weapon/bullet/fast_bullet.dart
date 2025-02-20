@@ -1,5 +1,3 @@
-// fast_red_bullet.dart
-
 import 'dart:ui';
 import 'package:vertical_vampires/game/life_component.dart';
 import 'package:vertical_vampires/game/weapon/bullet/abstract_bullet.dart';
