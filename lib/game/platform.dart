@@ -1,11 +1,12 @@
 import 'package:flame_forge2d/flame_forge2d.dart';
+import 'package:flutter/painting.dart';
 
 class Platform extends BodyComponent {
-  final Vector2 position;
+  final Vector2 _position;
   final Vector2 size;
   final BodyType bodyType;
 
-  Platform(this.position, this.size, this.bodyType);
+  Platform(this._position, this.size, this.bodyType);
 
   @override
   Body createBody() {
@@ -18,9 +19,12 @@ class Platform extends BodyComponent {
       ..friction = 0.0;
 
     final bodyDef = BodyDef()
-      ..position = position
+      ..position = _position
       ..type = bodyType;
 
     return world.createBody(bodyDef)..createFixture(fixtureDef);
   }
+
+  @override
+  void render(Canvas canvas) {}
 }

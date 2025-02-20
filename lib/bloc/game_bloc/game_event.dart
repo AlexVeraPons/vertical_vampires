@@ -1,7 +1,11 @@
-part of 'game_bloc.dart';
+abstract class GameState {}
 
-abstract class GameEvent {}
+class StartState extends GameState {}
 
-class StartEvent extends GameEvent {}
-class BattleEvent extends GameEvent {}
-class EndEvent extends GameEvent {}
+class BattleState extends GameState {}
+
+class UpgradeState extends GameState {}
+
+class EndState extends GameState {}
+
+class ResetState extends GameState {}
